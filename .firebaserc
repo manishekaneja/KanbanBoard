@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angularapplication-fda0f": {
+      "hosting": {
+        "angular-application": [
+          "angularapplication-fda0f"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angularapplication-fda0f"
+  }
+}

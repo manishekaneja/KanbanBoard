@@ -1,0 +1,44 @@
+<style>
+  mat-form-field {
+    width: 100%;
+  }
+</style>
+
+<h1 mat-dialog-title>
+  <span> Add a New Task </span>
+</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Task</mat-label>
+    <input matInput [(ngModel)]="data.task.description" required />
+    <mat-error> Required </mat-error>
+  </mat-form-field>
+  <mat-button-toggle-group
+    #group="matButtonToggleGroup"
+    [(ngModel)]="data.task.label"
+  >
+    <mat-button-toggle *ngFor="let opt of labelOptions" [value]="opt">
+      <mat-icon [ngClass]="opt"
+        >{{ opt === 'gray' ? 'check_circle' : 'lens' }}</mat-icon
+      >
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+  <!-- <mat-form-field>
+      <mat-label>Description</mat-label>
+      <input matInput [(ngModel)]="data.desc" />
+    </mat-form-field> -->
+</div>
+<div mat-dialog-actions>
+  <button
+    mat-button
+    [disabled]="!data.task.description"
+    [mat-dialog-close]="data"
+    cdkFocusInitial
+  >
+    {{data.isNew?"Add":"Update"}}
+  </button>
+  <app-delete-button
+    *ngIf="!data.isNew"
+    (delete)="deleteTask()"
+  ></app-delete-button>
+</div>

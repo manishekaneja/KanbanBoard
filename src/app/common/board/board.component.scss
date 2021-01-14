@@ -1,0 +1,104 @@
+@import "../../../styles.scss";
+.board {
+  background-color: map-get($primary, 400);
+  color: map-get($primary, "400-contrast");
+
+  & > .head {
+    width: 300px;
+    @include flx(flex-start, center);
+    & > mat-card-title {
+      flex: 1;
+      white-space: nowrap;
+      margin-bottom: 0px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+  & > .sub-heading {
+    width: 300px;
+    @include flx(flex-start, flex-start);
+    & > mat-card-subtitle {
+      color: map-get($primary, "400-contrast");
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+  margin-right: 10px;
+}
+.inner-card {
+  & > mat-card {
+    margin-bottom: 7px;
+  }
+}
+
+.yellow {
+  background-color: #f6d853;
+  color: #333;
+  font-weight: 500;
+}
+.blue {
+  background-color: #10a3eb;
+  color: #333;
+  font-weight: 500;
+}
+
+.green {
+  background-color: #3ac166;
+  color: #333;
+  font-weight: 500;
+}
+.red {
+  background-color: #ca3139;
+  color: #eee;
+  font-weight: 500;
+}
+.gray {
+  background-color: map-get($primary, 200);
+  color: map-get($primary, "200-contrast");
+  font-weight: 500;
+  text-decoration: line-through;
+}
+
+mat-card-actions {
+  @include flx(flex-start);
+}
+.cdk-drag-placeholder {
+  opacity: 0.2;
+}
+
+.cdk-drop-list-dragging .cdk-drag {
+  transition: transform 300ms ease;
+}
+.cdk-drag-animation {
+  transition: transform 30000ms ease;
+}
+::ng-deep {
+  .input {
+    width: 100%;
+    .mat-form-field-wrapper {
+      background-color: #eee;
+      color: #333;
+      padding-bottom: 0px !important;
+      .mat-form-field-infix {
+        border-top: 0px;
+      }
+    }
+    .mat-form-field-underline {
+      bottom: 0px;
+    }
+  }
+}
+@media (max-width: 599px) {
+  .board {
+    & > .head {
+      width: 100%;
+      flex: 1;
+    }
+    & > .sub-heading {
+      width: 100%;
+      flex: 1;
+    }
+    margin-bottom: 10px;
+  }
+}

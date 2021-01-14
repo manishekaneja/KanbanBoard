@@ -1,0 +1,4 @@
+<div *ngIf="!(afAuth.authState | async)">
+  <p>Not Allowed</p>
+</div>
+<app-board-list *ngIf="afAuth.authState | async"> </app-board-list>
